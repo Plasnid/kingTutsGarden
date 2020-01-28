@@ -40,13 +40,32 @@ let pharoahPlants = [
     {plantName: "strawberries", colour:"red", minMoisture: 0.1, soilCondition:0.09}
 ]
 
+//this is a function expression
+let wateringCan = function(plant){
+    console.log("inside of wateringCan");
+    console.log(plant);
+    plant.soilCondition +=0.5;
+    console.log(plant);
+
+}
+
 function waterPlants(plant){
     if(plant.soilCondition<plant.minMoisture){
         console.log(`${plant.plantName} needs watering`);
+        wateringCan(plant);
     }else{
         console.log(`${plant.plantName} doesn't need watering`);
     }
 }
+
+
+let pharoahsMood = (function(){
+    const mainBody = document.querySelector("body");
+    console.log(mainBody);
+    const moodPhrase = document.createElement("h2");
+    moodPhrase.innerText = "The Pharoah is Maaaaaaaaaaaaad!";
+    mainBody.appendChild(moodPhrase);
+})();
 
 for(let i=0; i<pharoahPlants.length; i++){
     waterPlants(pharoahPlants[i]);

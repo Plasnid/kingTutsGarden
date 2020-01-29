@@ -32,12 +32,12 @@ let isSleeping = true;
 
 
 let pharoahPlants = [
-    {plantName: "basil", colour:"green", minMoisture:0.7 ,soilCondition:0.6},
-    {plantName: "rosemary", colour:"green", minMoisture: 0.3, soilCondition:0.6},
-    {plantName: "sweet millions tomatoes", minMoisture: 0.9, colour:"orange", soilCondition:0.8},
-    {plantName: "peppermint", colour:"green", minMoisture: 0.2, soilCondition:0.3},
-    {plantName: "cillantro", colour:"green", minMoisture: 0.8, soilCondition:0.5},
-    {plantName: "strawberries", colour:"red", minMoisture: 0.1, soilCondition:0.09}
+    {plantName: "basil", colour:"green", minMoisture:0.7 ,soilCondition:0.6, isHardy:false},
+    {plantName: "rosemary", colour:"green", minMoisture: 0.3, soilCondition:0.6, isHardy: true},
+    {plantName: "sweet millions tomatoes", minMoisture: 0.9, colour:"orange", soilCondition:0.8, isHardy: true},
+    {plantName: "peppermint", colour:"green", minMoisture: 0.2, soilCondition:0.3, isHardy:false},
+    {plantName: "cillantro", colour:"green", minMoisture: 0.8, soilCondition:0.5, isHardy:false},
+    {plantName: "strawberries", colour:"red", minMoisture: 0.1, soilCondition:0.09, isHardy: true}
 ]
 
 //this is a function expression
@@ -49,10 +49,25 @@ let wateringCan = function(plant){
 
 }
 
+function nonHardyWatering(minWater, soilWater){
+    console.log("nonHardyWatering has been called");
+    //min water is the amount of water the plant needs
+
+    //soil water is the amount of water the plan has
+
+    return minWater-soilWater;
+}
+
 function waterPlants(plant){
-    if(plant.soilCondition<plant.minMoisture){
+    if(plant.soilCondition<plant.minMoisture && plant.isHardy==true){
         console.log(`${plant.plantName} needs watering`);
         wateringCan(plant);
+    }else if(plant.soilCondition<plant.minMoisture && plant.isHardy==false){
+        console.log(`${plant.plantName} is not hardy, water carefully`);
+        let waterAmount = nonHardyWatering(plant.minMoisture, plant.soilCondition);
+        console.log(`basil needs: ${waterAmount}`);
+        plant.soilCondition +=waterAmount;
+        console.log(`${plant.plantName}: ${plant.soilCondition}`);
     }else{
         console.log(`${plant.plantName} doesn't need watering`);
     }

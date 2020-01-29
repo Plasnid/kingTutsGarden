@@ -82,21 +82,24 @@ let pharoahsMood = (function(){
     mainBody.appendChild(moodPhrase);
 })();
 
-for(let i=0; i<pharoahPlants.length; i++){
-    waterPlants(pharoahPlants[i]);
-}
+(function starter(){
+    for(let i=0; i<pharoahPlants.length; i++){
+        waterPlants(pharoahPlants[i]);
+    }
+    //number of plants
+    let numPlants = pharoahPlants.length;
+    console.log(`The Pharoah has ${numPlants} plants!`);
+    //the pharoahs first plant is:
+    console.log(pharoahPlants[0]);
+    //the pharoahs last plant is:
+    console.log(pharoahPlants[pharoahPlants.length - 1]);
+    let strawberries = pharoahPlants[pharoahPlants.length - 1];
+    console.log(strawberries.needsWatering);
+    console.log(strawberries["needsWatering"]);
+})()
 
 
-//number of plants
-let numPlants = pharoahPlants.length;
-console.log(`The Pharoah has ${numPlants} plants!`);
-//the pharoahs first plant is:
-console.log(pharoahPlants[0]);
-//the pharoahs last plant is:
-console.log(pharoahPlants[pharoahPlants.length - 1]);
-let strawberries = pharoahPlants[pharoahPlants.length - 1];
-console.log(strawberries.needsWatering);
-console.log(strawberries["needsWatering"]);
+
 
 console.log(1=="1");
 console.log(1==="1");

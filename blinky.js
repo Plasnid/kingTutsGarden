@@ -32,3 +32,11 @@ function blink(){
         console.log("my eye is fine...no blinking required");
     }
 })()
+
+
+function rotateMotor(angle, time){
+    console.log(`move motor to ${angle} in ${time} seconds`);
+}
+rotateMotor(90, 4000);
+rotateMotor(180,3000);
+rotateMotor(0,1000);

@@ -82,10 +82,42 @@ let pharoahsMood = (function(){
     mainBody.appendChild(moodPhrase);
 })();
 
+function forwardsAndBackwards(){
+    let plantLength = pharoahPlants.length;
+    //for loop for(startingNumber, endingNumber, ++ or --){instructions}
+    //going forwards through the array
+    console.log("going forwards through the plants");
+    for(let i=0;i<plantLength;i++){
+        console.log(`${i}:${pharoahPlants[i].plantName}`);
+    }
+    //going backwards through the array
+    for(let i=plantLength-1;i>=0;i--){
+        console.log(`${i}:${pharoahPlants[i].plantName}`);
+    }
+
+}
+
+function pharoahFridaySong(){
+    console.log("I don't care if mondays blue");
+    console.log("tuesdays grey and wednesday too");
+    console.log("thursday I don't care about you");
+    console.log("its friday!  I'm in love!");
+}
+
+//generator
+
+function * eagles(){
+    yield "on a dark desert highway";
+    yield "cool wind in my hair";
+    yield "warm smell of colitas";
+    yield "rising up through air";
+}
+
 (function starter(){
     for(let i=0; i<pharoahPlants.length; i++){
         waterPlants(pharoahPlants[i]);
     }
+    forwardsAndBackwards();
     //number of plants
     let numPlants = pharoahPlants.length;
     console.log(`The Pharoah has ${numPlants} plants!`);
@@ -96,6 +128,46 @@ let pharoahsMood = (function(){
     let strawberries = pharoahPlants[pharoahPlants.length - 1];
     console.log(strawberries.needsWatering);
     console.log(strawberries["needsWatering"]);
+    pharoahFridaySong();
+    let pharoahHotel = eagles();
+    console.log(pharoahHotel.next().value);
+    console.log(pharoahHotel.next().value);
+    console.log(pharoahHotel.next().value);
+    console.log(pharoahHotel.next().value);
+    //generator taking data from an array
+    let paintItBlack = [
+        "I see a red door",
+        "and I want it painted black",
+        "not colour anymore",
+        "I want to paint it black",
+        "I see the girls walk by dressed in their summer clothes",
+        "I have to turn my head until the darkness goes"
+    ]
+    /**generator with an array */
+function* stepGen(steps){
+    let index = 0;
+    while (true) {
+        yield steps[index];
+        index = (index+1)%steps.length;
+    }
+}
+let stones = stepGen(paintItBlack); // pass array to make it more reusable
+    console.log(stones.next().value); 
+
+console.log("\n\n lets try it another way using yeild*");
+function* showSong(steps){
+    while (true) yield* steps;
+}
+let sixtiesSong = showSong(paintItBlack)
+console.log(sixtiesSong.next().value); 
+console.log(sixtiesSong.next().value);
+console.log(sixtiesSong.next().value);
+console.log(sixtiesSong.next().value);
+console.log(sixtiesSong.next().value);
+console.log(sixtiesSong.next().value);
+console.log("what happens when we hit the end of our array? we yield to the array");
+console.log(sixtiesSong.next().value);
+
 })()
 
 

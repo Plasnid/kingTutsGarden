@@ -33,10 +33,11 @@ function blink(){
     }
 })()
 
-
+//example of a function for rotation
 function rotateMotor(angle, time){
     console.log(`move motor to ${angle} in ${time} seconds`);
 }
+//example of using the rotation function
 rotateMotor(90, 4000);
 rotateMotor(180,3000);
 rotateMotor(0,1000);

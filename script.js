@@ -177,6 +177,33 @@ console.log(1=="1");
 console.log(1==="1");
 console.log(1===1);
 
+//Arrays are superheroes!
+//the pharoah is hungry and he wants california rolls
+//cucumber, avocado, crab, rice, nori, flying fish eggs
+
+let caliRoll = [];
+caliRoll.push("rice");
+caliRoll.unshift("nori");
+caliRoll.push("cucumber");
+caliRoll.push("flying fish eggs");
+caliRoll.push("crab");
+caliRoll.push("avocado");
+//start adding odd ingredients
+caliRoll.unshift("dark chocolate");
+caliRoll.push("gummies");
+console.log(caliRoll.length);
+console.log(caliRoll);
+//get rid of the last element, the gummies
+caliRoll.pop();
+console.log(caliRoll);
+//get rid of the firset element, dark chocolate
+caliRoll.shift()
+console.log(caliRoll);
+//switching flying fish eggs with frog eggs
+caliRoll.splice(3,1,"frog eggs");
+console.log(caliRoll)
+
+
 
 
 

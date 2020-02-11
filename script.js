@@ -202,7 +202,10 @@ console.log(caliRoll);
 //switching flying fish eggs with frog eggs
 caliRoll.splice(3,1,"frog eggs");
 console.log(caliRoll)
-
+//an example of slice
+let pharoahsInstruments = ["banjo","flute","guitar","trombone","cymbals"];
+let pharoahTrio = pharoahsInstruments.slice(0,3);
+console.log(pharoahTrio);
 
 
 
